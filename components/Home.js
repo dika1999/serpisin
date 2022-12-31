@@ -20,13 +20,13 @@ const Home = () => {
       backgroundColor: "#8B2CF5",
       paddingTop: 60,
       paddingBottom: 60,
-      marginBottom:30,
+      marginBottom:20,
     }}>
       <TextInput
         style={{
           height: 40,
-          width:300,
           marginLeft:10,
+          marginRight:10,
           paddingLeft:10,
           backgroundColor: "#FFFFFF",
           borderRadius:10,
@@ -39,10 +39,32 @@ const Home = () => {
     <ScrollView horizontal>
       {Kategori.map((category, index) => (
         <TouchableOpacity
-          style={{ marginRight: 10 }} 
+          style={{ 
+            marginRight:5,
+            marginBottom:15,
+            paddingRight:5,
+            paddingLeft:10,
+            paddingBottom:5,
+           }} 
           key={index}
           onPress={() => setActiveCategory(index)}
         >
+          <View
+            style={[
+              {
+                height:35,
+              backgroundColor:"#EAF4F4",
+              paddingTop:5,
+              paddingBottom:5,
+              paddingLeft:7,
+              paddingRight:7,
+              borderRadius:10,
+              },
+              activeCategory === index && {
+                backgroundColor:"#DEE2FF",
+              },
+            ]}
+          >
           <Text
             style={[
               {
@@ -51,7 +73,7 @@ const Home = () => {
                 color: "black",
               },
               activeCategory === index && {
-                fontSize: 16,
+                fontSize: 15,
                 fontWeight: "700",
                 color: "#8B2CF5",
               },
@@ -59,36 +81,50 @@ const Home = () => {
           >
             {category.title}
           </Text>
+          </View>
         </TouchableOpacity>
       ))}</ScrollView>
 
       {/* List Jasa */}
-      <ScrollView>
+      <ScrollView
+        style={{
+          marginBottom:200,
+        }}
+      >
         <View
           style={{
             flexDirection: "row",
             flexWrap: "wrap",
             justifyContent: "space-between",
-            marginVertical: 10,
+            marginVertical:10,
+            marginLeft:10,
+            marginRight:10,
           }}
         >
           {Kategori[activeCategory].jasa.map((item) => (
             <TouchableOpacity
-              style={{ width: ITEM_WIDTH, marginBottom: 20}}
+              style={{
+                width: ITEM_WIDTH,
+                marginBottom: 20,
+                backgroundColor:"#DEE2FF",
+                borderRadius:10,
+              }}
               key={item.id}
             >
               <Image
                 style={{
                   width: "100%",
                   height: ITEM_WIDTH + 30,
-                  borderRadius: 15,
+                  borderRadius: 10,
                 }}
                 source={item.image}
               />
               <Text
                 style={{
                   marginTop:10,
-                  fontSize:12,
+                  marginLeft:10,
+                  fontSize:14,
+                  fontWeight:"700",
                 }}
               >
                 {item.nama}
@@ -96,6 +132,7 @@ const Home = () => {
               <Text
                 style={{
                   marginTop:5,
+                  marginLeft:10,
                   fontSize:12,
                 }}
               >
@@ -104,7 +141,11 @@ const Home = () => {
               <Text
                 style={{
                   marginTop:5,
-                  fontSize:12,
+                  marginBottom:10,
+                  marginLeft:10,
+                  fontSize:13,
+                  fontWeight:"600",
+                  color: "#8B2CF5",
                 }}
               >
                 {item.kontak}
@@ -113,9 +154,10 @@ const Home = () => {
           ))}
         </View>
       </ScrollView>
-
     </SafeAreaView>
   );
 };
 
 export default Home;
+
+const style = StyleSheet.create({});
