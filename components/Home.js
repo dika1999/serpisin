@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View, StyleSheet, Image, Dimensions } from 'react-native'
+import { SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View, StyleSheet, Image, Dimensions, StatusBar } from 'react-native'
 
 // Import Data
 import Kategori from './Kategori'
@@ -13,12 +13,15 @@ const Home = () => {
   return (
     <SafeAreaView>
 
-      {/* Header & Pencarian */}
+{/* Status Bar & Pencarian */}
+      <StatusBar
+        animated={true}
+        backgroundColor="#8B2CF5"/>
+
       <View style={{
-      height:60,
-      width: 412,
+      height:30,
       backgroundColor: "#8B2CF5",
-      paddingTop: 60,
+      paddingTop: 30,
       paddingBottom: 60,
       marginBottom:20,
     }}>
@@ -35,7 +38,7 @@ const Home = () => {
       />
     </View>
     
-    {/* Kategori */}
+{/* Kategori */}
     <ScrollView horizontal>
       {Kategori.map((category, index) => (
         <TouchableOpacity
@@ -44,7 +47,7 @@ const Home = () => {
             marginBottom:15,
             paddingRight:5,
             paddingLeft:10,
-            paddingBottom:5,
+            paddingBottom:15,
            }} 
           key={index}
           onPress={() => setActiveCategory(index)}
@@ -85,7 +88,7 @@ const Home = () => {
         </TouchableOpacity>
       ))}</ScrollView>
 
-      {/* List Jasa */}
+{/* List Jasa */}
       <ScrollView
         style={{
           marginBottom:200,
@@ -133,7 +136,7 @@ const Home = () => {
                 style={{
                   marginTop:5,
                   marginLeft:10,
-                  fontSize:12,
+                  fontSize:13,
                 }}
               >
                 {item.lokasi}
@@ -159,5 +162,3 @@ const Home = () => {
 };
 
 export default Home;
-
-const style = StyleSheet.create({});

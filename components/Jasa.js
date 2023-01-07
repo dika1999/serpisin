@@ -9,7 +9,7 @@ import oto3 from '../assets/images/Otomotif/oto3.jpg'
 
 //Pertukangan
 import tuk1 from '../assets/images/Pertukangan/tuk1.jpg'
-import tuk2 from '../assets/images/Pertukangan/tuk1.jpg'
+import tuk2 from '../assets/images/Pertukangan/tuk2.jpg'
 
 //Perawatan Diri
 import per1 from '../assets/images/PerawatanDiri/per1.jpg'
